@@ -1,13 +1,35 @@
-name: ros2cli
-base: core22
-version: '0.1'
-summary: command line interface tools for ROS2
+name: ros2-cli
+version: humble
+summary: Command line interface tools for ROS2
 description: |
-  This allows portable use of the `ros2cli` tool,
-  very useful when a native installation is not available.
+  Snap for ROS 2 command line interface tools [1] included with a standard install of any ROS 2 distro.
+  
+  **Note**: This is a beta release, do expect bugs and limitations. If you encounter any, please do report it [2].
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+  The Snap lacks support for tools like roslaunch, rospkg, and rosrun, as these require access to the user's workspace. 
+  Additionally, only ROS released messages are supported, not custom ones, for the same reason.
+
+  The ros2-cheat-sheet [3] provides examples for commands and their verbs.
+
+  Installation Instructions:
+
+  * Install ros2cli from a terminal,
+  `snap install ros2-cli --humble/edge`
+
+  * Test your installation,
+  `ros2-cli.ros2 --help`
+
+  [1] https://github.com/ros2/ros2cli
+  [2] https://github.com/ubuntu-robotics/ros2cli-snap/issues
+  [3] https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf
+
+issues: https://github.com/ubuntu-robotics/ros2cli-snap/issues
+source-code: https://github.com/ubuntu-robotics/ros2cli-snap
+license: Apache-2.0
+
+grade: devel
+confinement: strict
+base: core22
 
 apps:
   ros2:
@@ -35,6 +57,8 @@ parts:
       - ros2pkg
       - ros2run
       - ros2launch
+    build-packages:
+      - ros-humble-rosidl-adapter
     stage-packages:
       - ros-humble-rosidl-adapter
       - ros-humble-ackermann-msgs
