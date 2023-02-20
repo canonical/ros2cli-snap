@@ -7,8 +7,7 @@ description: |
 
   **Note**: This is a beta release, do expect bugs and limitations. If you encounter any, please do report i>
 
-  The Snap lacks support for tools like roslaunch, rospkg, and rosrun, as these require access to the user's>
-  Additionally, only ROS released messages are supported, not custom ones, for the same reason.
+  The Snap does not support roslaunch, rospkg, rosrun and custom ROS messages as these require access to the host filesystem.
 
   The ros2-cheat-sheet [3] provides examples for commands and their verbs.
 
