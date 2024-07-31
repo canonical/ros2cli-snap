@@ -59,6 +59,7 @@ parts:
       - ros-humble-rosidl-adapter
     stage-packages:
       - ros-humble-rosidl-adapter
+      # msgs
       - ros-humble-ackermann-msgs
       - ros-humble-action-msgs-dbgsym
       - ros-humble-action-msgs
@@ -301,6 +302,15 @@ parts:
       - ros-humble-webots-ros2-msgs
       - ros-humble-wiimote-msgs-dbgsym
       - ros-humble-wiimote-msgs
+      # srvs
+      - ros-humble-cob-srvs
+      - ros-humble-cob-srvs-dbgsym
+      - ros-humble-mocap4r2-marker-viz-srvs
+      - ros-humble-mocap4r2-marker-viz-srvs-dbgsym
+      - ros-humble-qb-softhand-industry-srvs
+      - ros-humble-qb-softhand-industry-srvs-dbgsym
+      - ros-humble-std-srvs
+      - ros-humble-std-srvs-dbgsym
       # Additional DDS vendors
       - ros-humble-rmw-cyclonedds-cpp
       - ros-humble-rmw-fastrtps-cpp
