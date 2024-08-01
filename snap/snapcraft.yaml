@@ -306,8 +306,28 @@ parts:
       - ros-humble-rmw-fastrtps-cpp
       ## Commenting out the tier2 dds implementation for now. To add only in the future if required.
       ## When added they return the following runtime warning:
-      ## [connext_cmake_module] Warning: The location at which Connext was found 
+      ## [connext_cmake_module] Warning: The location at which Connext was found
       ## when the workspace was built [[/opt/rti.com/rti_connext_dds-5.3.1]] does not point to a valid directory,
       ## and the NDDSHOME environment variable has not been set. Support for Connext will not be available.
       #--ros-humble-rmw-connext-cpp
       #--ros-humble-rmw-gurumdds-cpp
+
+  openai:
+    plugin: python
+    source: .
+    python-packages: [openai]
+
+  ros2ai:
+    plugin: colcon
+    source: https://github.com/fujitatomoya/ros2ai.git
+    source-branch: rolling
+    # Avoid pulling ros2cli while it's served by the part above
+    override-build: |
+      sed -i "\|<exec_depend>ros2cli</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
+      craftctl default
+    stage:
+      - -opt/ros/snap/local_setup.sh
+      - -opt/ros/snap/setup.bash
+      - -opt/ros/snap/setup.ps1
+      - -opt/ros/snap/setup.sh
+      - -opt/ros/snap/setup.zsh
