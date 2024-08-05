@@ -1,0 +1,19 @@
+name: Monthly
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  humble:
+    uses: ubuntu-robotics/ros2cli-snap/.github/workflows/snap.yaml@humble
+    with:
+      branch-name: "humble"
+  foxy:
+    uses: ubuntu-robotics/ros2cli-snap/.github/workflows/snap.yaml@foxy
+    with:
+      branch-name: "foxy"
+  jazzy:
+    uses: ubuntu-robotics/ros2cli-snap/.github/workflows/snap.yaml@jazzy
+    with:
+      branch-name: "jazzy"
