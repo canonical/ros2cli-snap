@@ -407,7 +407,7 @@ parts:
       ## and the NDDSHOME environment variable has not been set. Support for Connext will not be available.
       #--ros-jazzy-rmw-connext-cpp
       #--ros-jazzy-rmw-gurumdds-cpp
-  humble-desktop-libamdhip-exec-stack:
+  jazzy-desktop-libamdhip-exec-stack:
     # https://github.com/ROCm/clr/issues/22
     after: [ros2cli]
     plugin: nil
