@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - jazzy
+      - test/foundational
   pull_request:
     branches:
       - jazzy
