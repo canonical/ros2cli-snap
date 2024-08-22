@@ -58,6 +58,9 @@ parts:
     plugin: colcon
     source: https://github.com/ros2/ros2cli.git
     source-branch: jazzy
+    override-build: |
+      sed -i '6i \\import warnings; warnings.filterwarnings("ignore", category=DeprecationWarning)' /usr/bin/rosdep
+      snapcraftctl build
     colcon-packages-ignore:
       - ros2pkg
       - ros2run
