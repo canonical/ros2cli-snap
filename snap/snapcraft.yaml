@@ -38,7 +38,7 @@ apps:
       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/blas:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/lapack"
       # Disable FastDDS shared-memory
       FASTRTPS_DEFAULT_PROFILES_FILE: "${SNAP}/usr/share/fastdds_no_shared_memory.xml"
-    extensions: [ros-jazzy-ros-core]
+    extensions: [ros2-jazzy-ros-core]
 
 parts:
   fastdds-no-shared-memory:
