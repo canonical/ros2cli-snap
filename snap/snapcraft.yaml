@@ -592,4 +592,4 @@ parts:
   #     amdlib="$(readlink -f usr/lib/x86_64-linux-gnu/libamdhip64.so.5)"
   #     if [ -f $amdlib ]; then
   #       execstack -c $amdlib
-      fi
+      # fi
