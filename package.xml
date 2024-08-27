@@ -7,9 +7,9 @@
   <maintainer email="canonical-robotics-brand@canonical.com">ubuntu-robotics</maintainer>
   <license>GPLv3</license>
 
-  <exec_depend>ros-jazzy-ackermann-msgs</exec_depend>
-  <exec_depend>ros-jazzy-action-msgs</exec_depend>
-  <exec_depend>ros-jazzy-actionlib-msgs</exec_depend>
+  <exec_depend>ackermann-msgs</exec_depend>
+  <exec_depend>action-msgs</exec_depend>
+  <exec_depend>actionlib-msgs</exec_depend>
 
 
 </package>
