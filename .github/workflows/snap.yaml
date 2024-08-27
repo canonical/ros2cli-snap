@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - jazzy
-      - test/foundational
+      - mirko/test_foundational
   pull_request:
     branches:
       - jazzy
