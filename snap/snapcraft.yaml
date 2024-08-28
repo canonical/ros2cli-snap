@@ -3,7 +3,7 @@ version: jazzy
 summary: Command line interface tools for ROS2
 description: |
   Snap for ROS 2 command line interface tools [1] included with a standard install of any ROS 2 distro.
-  
+
   Note: This is a beta release, if you encounter any bugs or limitations, please do report it [2].
 
   The Snap does not support roslaunch, rospkg, rosrun and custom ROS messages as these require access to the host filesystem.
@@ -38,7 +38,7 @@ apps:
       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/blas:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/lapack"
       # Disable FastDDS shared-memory
       FASTRTPS_DEFAULT_PROFILES_FILE: "${SNAP}/usr/share/fastdds_no_shared_memory.xml"
-    extensions: [ros2-jazzy]
+    extensions: [ros2-jazzy-ros-base]
 
 parts:
   fastdds-no-shared-memory:
@@ -48,11 +48,11 @@ parts:
       'fastdds_no_shared_memory.xml': usr/share/
 
 # prevent module error using 'distutils', removed from python 3.12
-  python-deps:
-    plugin: python
-    source: .
-    python-packages:
-      - setuptools
+  # python-deps:
+  #   plugin: python
+  #   source: .
+  #   python-packages:
+  #     - setuptools
 
   ros2cli:
     plugin: colcon
@@ -64,357 +64,212 @@ parts:
       - ros2launch
     build-packages:
       - ros-jazzy-rosidl-adapter
-    stage-packages:
-      - ros-jazzy-ackermann-msgs
-      - ros-jazzy-ackermann-msgs-dbgsym
-      - ros-jazzy-action-msgs
-      - ros-jazzy-action-msgs-dbgsym
-      - ros-jazzy-actionlib-msgs
-      - ros-jazzy-actionlib-msgs-dbgsym
-      - ros-jazzy-actuator-msgs
-      - ros-jazzy-actuator-msgs-dbgsym
-      - ros-jazzy-apriltag-msgs
-      - ros-jazzy-apriltag-msgs-dbgsym
-      - ros-jazzy-aruco-msgs
-      - ros-jazzy-aruco-msgs-dbgsym
-      - ros-jazzy-aruco-opencv-msgs
-      - ros-jazzy-aruco-opencv-msgs-dbgsym
-      - ros-jazzy-automotive-autonomy-msgs
-      - ros-jazzy-automotive-navigation-msgs
-      - ros-jazzy-automotive-navigation-msgs-dbgsym
-      - ros-jazzy-automotive-platform-msgs
-      - ros-jazzy-automotive-platform-msgs-dbgsym
-      - ros-jazzy-autoware-adapi-v1-msgs
-      - ros-jazzy-autoware-adapi-v1-msgs-dbgsym
-      - ros-jazzy-autoware-adapi-version-msgs
-      - ros-jazzy-autoware-adapi-version-msgs-dbgsym
-      - ros-jazzy-autoware-auto-msgs
-      - ros-jazzy-autoware-auto-msgs-dbgsym
-      - ros-jazzy-autoware-common-msgs
-      - ros-jazzy-autoware-common-msgs-dbgsym
-      - ros-jazzy-autoware-control-msgs
-      - ros-jazzy-autoware-control-msgs-dbgsym
-      - ros-jazzy-autoware-internal-msgs
-      - ros-jazzy-autoware-internal-msgs-dbgsym
-      - ros-jazzy-autoware-localization-msgs
-      - ros-jazzy-autoware-localization-msgs-dbgsym
-      - ros-jazzy-autoware-map-msgs
-      - ros-jazzy-autoware-map-msgs-dbgsym
-      - ros-jazzy-autoware-perception-msgs
-      - ros-jazzy-autoware-perception-msgs-dbgsym
-      - ros-jazzy-autoware-planning-msgs
-      - ros-jazzy-autoware-planning-msgs-dbgsym
-      - ros-jazzy-autoware-sensing-msgs
-      - ros-jazzy-autoware-sensing-msgs-dbgsym
-      - ros-jazzy-autoware-system-msgs
-      - ros-jazzy-autoware-system-msgs-dbgsym
-      - ros-jazzy-autoware-vehicle-msgs
-      - ros-jazzy-autoware-vehicle-msgs-dbgsym
-      - ros-jazzy-camera-aravis2-msgs
-      - ros-jazzy-camera-aravis2-msgs-dbgsym
-      - ros-jazzy-can-msgs
-      - ros-jazzy-can-msgs-dbgsym
-      - ros-jazzy-cartographer-ros-msgs
-      - ros-jazzy-cartographer-ros-msgs-dbgsym
-      - ros-jazzy-cascade-lifecycle-msgs
-      - ros-jazzy-cascade-lifecycle-msgs-dbgsym
-      - ros-jazzy-control-msgs
-      - ros-jazzy-control-msgs-dbgsym
-      - ros-jazzy-controller-manager-msgs
-      - ros-jazzy-controller-manager-msgs-dbgsym
-      - ros-jazzy-data-tamer-msgs
-      - ros-jazzy-data-tamer-msgs-dbgsym
-      - ros-jazzy-delphi-esr-msgs
-      - ros-jazzy-delphi-esr-msgs-dbgsym
-      - ros-jazzy-delphi-mrr-msgs
-      - ros-jazzy-delphi-mrr-msgs-dbgsym
-      - ros-jazzy-delphi-srr-msgs
-      - ros-jazzy-delphi-srr-msgs-dbgsym
-      - ros-jazzy-derived-object-msgs
-      - ros-jazzy-derived-object-msgs-dbgsym
-      - ros-jazzy-diagnostic-msgs
-      - ros-jazzy-diagnostic-msgs-dbgsym
-      - ros-jazzy-dwb-msgs
-      - ros-jazzy-dwb-msgs-dbgsym
-      - ros-jazzy-dynamixel-workbench-msgs
-      - ros-jazzy-dynamixel-workbench-msgs-dbgsym
-      - ros-jazzy-etsi-its-cam-msgs
-      - ros-jazzy-etsi-its-cam-msgs-dbgsym
-      - ros-jazzy-etsi-its-cpm-ts-msgs
-      - ros-jazzy-etsi-its-cpm-ts-msgs-dbgsym
-      - ros-jazzy-etsi-its-denm-msgs
-      - ros-jazzy-etsi-its-denm-msgs-dbgsym
-      - ros-jazzy-etsi-its-msgs
-      - ros-jazzy-etsi-its-msgs-utils
-      - ros-jazzy-event-camera-msgs
-      - ros-jazzy-event-camera-msgs-dbgsym
-      - ros-jazzy-ffmpeg-image-transport-msgs
-      - ros-jazzy-ffmpeg-image-transport-msgs-dbgsym
-      - ros-jazzy-flexbe-msgs
-      - ros-jazzy-flexbe-msgs-dbgsym
-      - ros-jazzy-flir-camera-msgs
-      - ros-jazzy-flir-camera-msgs-dbgsym
-      - ros-jazzy-four-wheel-steering-msgs
-      - ros-jazzy-four-wheel-steering-msgs-dbgsym
-      - ros-jazzy-foxglove-msgs
-      - ros-jazzy-foxglove-msgs-dbgsym
-      - ros-jazzy-fuse-msgs
-      - ros-jazzy-fuse-msgs-dbgsym
-      - ros-jazzy-gazebo-msgs
-      - ros-jazzy-gazebo-msgs-dbgsym
-      - ros-jazzy-geographic-msgs
-      - ros-jazzy-geographic-msgs-dbgsym
-      - ros-jazzy-geometry-msgs
-      - ros-jazzy-geometry-msgs-dbgsym
-      - ros-jazzy-gps-msgs
-      - ros-jazzy-gps-msgs-dbgsym
-      - ros-jazzy-graph-msgs
-      - ros-jazzy-graph-msgs-dbgsym
-      - ros-jazzy-grbl-msgs
-      - ros-jazzy-grbl-msgs-dbgsym
-      - ros-jazzy-gz-msgs-vendor
-      - ros-jazzy-gz-msgs-vendor-dbgsym
-      - ros-jazzy-ibeo-msgs
-      - ros-jazzy-ibeo-msgs-dbgsym
-      - ros-jazzy-irobot-create-msgs
-      - ros-jazzy-irobot-create-msgs-dbgsym
-      - ros-jazzy-kartech-linear-actuator-msgs
-      - ros-jazzy-kartech-linear-actuator-msgs-dbgsym
-      - ros-jazzy-leo-msgs
-      - ros-jazzy-leo-msgs-dbgsym
-      - ros-jazzy-lgsvl-msgs
-      - ros-jazzy-lgsvl-msgs-dbgsym
-      - ros-jazzy-lifecycle-msgs
-      - ros-jazzy-lifecycle-msgs-dbgsym
-      - ros-jazzy-map-msgs
-      - ros-jazzy-map-msgs-dbgsym
-      - ros-jazzy-marine-acoustic-msgs
-      - ros-jazzy-marine-acoustic-msgs-dbgsym
-      - ros-jazzy-marine-sensor-msgs
-      - ros-jazzy-marine-sensor-msgs-dbgsym
-      - ros-jazzy-marti-can-msgs
-      - ros-jazzy-marti-can-msgs-dbgsym
-      - ros-jazzy-marti-common-msgs
-      - ros-jazzy-marti-common-msgs-dbgsym
-      - ros-jazzy-marti-dbw-msgs
-      - ros-jazzy-marti-dbw-msgs-dbgsym
-      - ros-jazzy-marti-introspection-msgs
-      - ros-jazzy-marti-introspection-msgs-dbgsym
-      - ros-jazzy-marti-nav-msgs
-      - ros-jazzy-marti-nav-msgs-dbgsym
-      - ros-jazzy-marti-perception-msgs
-      - ros-jazzy-marti-perception-msgs-dbgsym
-      - ros-jazzy-marti-sensor-msgs
-      - ros-jazzy-marti-sensor-msgs-dbgsym
-      - ros-jazzy-marti-status-msgs
-      - ros-jazzy-marti-status-msgs-dbgsym
-      - ros-jazzy-marti-visualization-msgs
-      - ros-jazzy-marti-visualization-msgs-dbgsym
-      - ros-jazzy-mavros-msgs
-      - ros-jazzy-mavros-msgs-dbgsym
-      - ros-jazzy-micro-ros-diagnostic-msgs
-      - ros-jazzy-micro-ros-diagnostic-msgs-dbgsym
-      - ros-jazzy-micro-ros-msgs
-      - ros-jazzy-micro-ros-msgs-dbgsym
-      - ros-jazzy-microstrain-inertial-msgs
-      - ros-jazzy-microstrain-inertial-msgs-dbgsym
-      - ros-jazzy-mobileye-560-660-msgs
-      - ros-jazzy-mobileye-560-660-msgs-dbgsym
-      - ros-jazzy-moveit-msgs
-      - ros-jazzy-moveit-msgs-dbgsym
-      - ros-jazzy-mrpt-msgs
-      - ros-jazzy-mrpt-msgs-bridge
-      - ros-jazzy-mrpt-msgs-dbgsym
-      - ros-jazzy-nao-command-msgs
-      - ros-jazzy-nao-command-msgs-dbgsym
-      - ros-jazzy-nao-lola-command-msgs
-      - ros-jazzy-nao-lola-command-msgs-dbgsym
-      - ros-jazzy-nao-lola-sensor-msgs
-      - ros-jazzy-nao-lola-sensor-msgs-dbgsym
-      - ros-jazzy-nao-sensor-msgs
-      - ros-jazzy-nao-sensor-msgs-dbgsym
-      - ros-jazzy-nav-2d-msgs
-      - ros-jazzy-nav-2d-msgs-dbgsym
-      - ros-jazzy-nav-msgs
-      - ros-jazzy-nav-msgs-dbgsym
-      - ros-jazzy-nav2-msgs
-      - ros-jazzy-nav2-msgs-dbgsym
-      - ros-jazzy-neobotix-usboard-msgs
-      - ros-jazzy-neobotix-usboard-msgs-dbgsym
-      - ros-jazzy-nmea-msgs
-      - ros-jazzy-nmea-msgs-dbgsym
-      - ros-jazzy-novatel-gps-msgs
-      - ros-jazzy-novatel-gps-msgs-dbgsym
-      - ros-jazzy-object-recognition-msgs
-      - ros-jazzy-object-recognition-msgs-dbgsym
-      - ros-jazzy-octomap-msgs
-      - ros-jazzy-octomap-msgs-dbgsym
-      - ros-jazzy-ouster-msgs
-      - ros-jazzy-ouster-msgs-dbgsym
-      - ros-jazzy-ouster-sensor-msgs
-      - ros-jazzy-ouster-sensor-msgs-dbgsym
-      - ros-jazzy-pal-statistics-msgs
-      - ros-jazzy-pal-statistics-msgs-dbgsym
-      - ros-jazzy-pcl-msgs
-      - ros-jazzy-pcl-msgs-dbgsym
-      - ros-jazzy-pendulum-msgs
-      - ros-jazzy-pendulum-msgs-dbgsym
-      - ros-jazzy-phidgets-msgs
-      - ros-jazzy-phidgets-msgs-dbgsym
-      - ros-jazzy-plotjuggler-msgs
-      - ros-jazzy-plotjuggler-msgs-dbgsym
-      - ros-jazzy-point-cloud-msg-wrapper
-      - ros-jazzy-polygon-msgs
-      - ros-jazzy-polygon-msgs-dbgsym
-      - ros-jazzy-radar-msgs
-      - ros-jazzy-radar-msgs-dbgsym
-      - ros-jazzy-rc-common-msgs
-      - ros-jazzy-rc-common-msgs-dbgsym
-      - ros-jazzy-rc-reason-msgs
-      - ros-jazzy-rc-reason-msgs-dbgsym
-      - ros-jazzy-rclpy-message-converter-msgs
-      - ros-jazzy-rclpy-message-converter-msgs-dbgsym
-      - ros-jazzy-rcss3d-agent-msgs
-      - ros-jazzy-rcss3d-agent-msgs-dbgsym
-      - ros-jazzy-rcss3d-agent-msgs-to-soccer-interfaces
-      - ros-jazzy-rcss3d-agent-msgs-to-soccer-interfaces-dbgsym
-      - ros-jazzy-realsense2-camera-msgs
-      - ros-jazzy-realsense2-camera-msgs-dbgsym
-      - ros-jazzy-rmf-api-msgs
-      - ros-jazzy-rmf-building-map-msgs
-      - ros-jazzy-rmf-building-map-msgs-dbgsym
-      - ros-jazzy-rmf-charger-msgs
-      - ros-jazzy-rmf-charger-msgs-dbgsym
-      - ros-jazzy-rmf-dispenser-msgs
-      - ros-jazzy-rmf-dispenser-msgs-dbgsym
-      - ros-jazzy-rmf-door-msgs
-      - ros-jazzy-rmf-door-msgs-dbgsym
-      - ros-jazzy-rmf-fleet-msgs
-      - ros-jazzy-rmf-fleet-msgs-dbgsym
-      - ros-jazzy-rmf-ingestor-msgs
-      - ros-jazzy-rmf-ingestor-msgs-dbgsym
-      - ros-jazzy-rmf-lift-msgs
-      - ros-jazzy-rmf-lift-msgs-dbgsym
-      - ros-jazzy-rmf-obstacle-msgs
-      - ros-jazzy-rmf-obstacle-msgs-dbgsym
-      - ros-jazzy-rmf-scheduler-msgs
-      - ros-jazzy-rmf-scheduler-msgs-dbgsym
-      - ros-jazzy-rmf-site-map-msgs
-      - ros-jazzy-rmf-site-map-msgs-dbgsym
-      - ros-jazzy-rmf-task-msgs
-      - ros-jazzy-rmf-task-msgs-dbgsym
-      - ros-jazzy-rmf-traffic-msgs
-      - ros-jazzy-rmf-traffic-msgs-dbgsym
-      - ros-jazzy-rmf-visualization-msgs
-      - ros-jazzy-rmf-visualization-msgs-dbgsym
-      - ros-jazzy-rmf-workcell-msgs
-      - ros-jazzy-rmf-workcell-msgs-dbgsym
-      - ros-jazzy-robot-calibration-msgs
-      - ros-jazzy-robot-calibration-msgs-dbgsym
-      - ros-jazzy-ros2-socketcan-msgs
-      - ros-jazzy-ros2-socketcan-msgs-dbgsym
-      - ros-jazzy-rosapi-msgs
-      - ros-jazzy-rosapi-msgs-dbgsym
-      - ros-jazzy-rosbag2-performance-benchmarking-msgs
-      - ros-jazzy-rosbag2-test-msgdefs
-      - ros-jazzy-rosbag2-test-msgdefs-dbgsym
-      - ros-jazzy-rosbridge-msgs
-      - ros-jazzy-rosbridge-msgs-dbgsym
-      - ros-jazzy-rosbridge-test-msgs
-      - ros-jazzy-rosbridge-test-msgs-dbgsym
-      - ros-jazzy-rosgraph-msgs
-      - ros-jazzy-rosgraph-msgs-dbgsym
-      - ros-jazzy-rqt-msg
-      - ros-jazzy-rtabmap-msgs
-      - ros-jazzy-rtabmap-msgs-dbgsym
-      - ros-jazzy-rtcm-msgs
-      - ros-jazzy-rtcm-msgs-dbgsym
-      - ros-jazzy-rviz-2d-overlay-msgs
-      - ros-jazzy-rviz-2d-overlay-msgs-dbgsym
-      - ros-jazzy-sensor-msgs
-      - ros-jazzy-sensor-msgs-dbgsym
-      - ros-jazzy-sensor-msgs-py
-      - ros-jazzy-service-msgs
-      - ros-jazzy-service-msgs-dbgsym
-      - ros-jazzy-shape-msgs
-      - ros-jazzy-shape-msgs-dbgsym
-      - ros-jazzy-smach-msgs
-      - ros-jazzy-smach-msgs-dbgsym
-      - ros-jazzy-soccer-geometry-msgs
-      - ros-jazzy-soccer-geometry-msgs-dbgsym
-      - ros-jazzy-soccer-model-msgs
-      - ros-jazzy-soccer-model-msgs-dbgsym
-      - ros-jazzy-soccer-vision-2d-msgs
-      - ros-jazzy-soccer-vision-2d-msgs-dbgsym
-      - ros-jazzy-soccer-vision-3d-msgs
-      - ros-jazzy-soccer-vision-3d-msgs-dbgsym
-      - ros-jazzy-soccer-vision-attribute-msgs
-      - ros-jazzy-soccer-vision-attribute-msgs-dbgsym
-      - ros-jazzy-statistics-msgs
-      - ros-jazzy-statistics-msgs-dbgsym
-      - ros-jazzy-std-msgs
-      - ros-jazzy-std-msgs-dbgsym
-      - ros-jazzy-stereo-msgs
-      - ros-jazzy-stereo-msgs-dbgsym
-      - ros-jazzy-system-modes-msgs
-      - ros-jazzy-system-modes-msgs-dbgsym
-      - ros-jazzy-teleop-tools-msgs
-      - ros-jazzy-teleop-tools-msgs-dbgsym
-      - ros-jazzy-test-msgs
-      - ros-jazzy-test-msgs-dbgsym
-      - ros-jazzy-tf2-geometry-msgs
-      - ros-jazzy-tf2-msgs
-      - ros-jazzy-tf2-msgs-dbgsym
-      - ros-jazzy-tf2-sensor-msgs
-      - ros-jazzy-trajectory-msgs
-      - ros-jazzy-trajectory-msgs-dbgsym
-      - ros-jazzy-turtlebot3-msgs
-      - ros-jazzy-turtlebot3-msgs-dbgsym
-      - ros-jazzy-twist-mux-msgs
-      - ros-jazzy-twist-mux-msgs-dbgsym
-      - ros-jazzy-ublox-msgs
-      - ros-jazzy-ublox-msgs-dbgsym
-      - ros-jazzy-ublox-ubx-msgs
-      - ros-jazzy-ublox-ubx-msgs-dbgsym
-      - ros-jazzy-udp-msgs
-      - ros-jazzy-udp-msgs-dbgsym
-      - ros-jazzy-unique-identifier-msgs
-      - ros-jazzy-unique-identifier-msgs-dbgsym
-      - ros-jazzy-ur-dashboard-msgs
-      - ros-jazzy-ur-dashboard-msgs-dbgsym
-      - ros-jazzy-ur-msgs
-      - ros-jazzy-ur-msgs-dbgsym
-      - ros-jazzy-urg-node-msgs
-      - ros-jazzy-urg-node-msgs-dbgsym
-      - ros-jazzy-velodyne-msgs
-      - ros-jazzy-velodyne-msgs-dbgsym
-      - ros-jazzy-vision-msgs
-      - ros-jazzy-vision-msgs-dbgsym
-      - ros-jazzy-vision-msgs-layers
-      - ros-jazzy-vision-msgs-layers-dbgsym
-      - ros-jazzy-vision-msgs-rviz-plugins
-      - ros-jazzy-vision-msgs-rviz-plugins-dbgsym
-      - ros-jazzy-visualization-msgs
-      - ros-jazzy-visualization-msgs-dbgsym
-      - ros-jazzy-webots-ros2-msgs
-      - ros-jazzy-webots-ros2-msgs-dbgsym
-      - ros-jazzy-wiimote-msgs
-      - ros-jazzy-wiimote-msgs-dbgsym
-      ## Commenting out the tier2 dds implementation for now. To add only in the future if required.
-      ## When added they return the following runtime warning:
-      ## [connext_cmake_module] Warning: The location at which Connext was found 
-      ## when the workspace was built [[/opt/rti.com/rti_connext_dds-5.3.1]] does not point to a valid directory,
-      ## and the NDDSHOME environment variable has not been set. Support for Connext will not be available.
-      #--ros-jazzy-rmw-connext-cpp
-      #--ros-jazzy-rmw-gurumdds-cpp
-  jazzy-desktop-libamdhip-exec-stack:
-    # https://github.com/ROCm/clr/issues/22
-    after: [ros2cli]
-    plugin: nil
-    build-packages: [execstack]
-    override-prime: |
-      # try remove execstack on libamdhip
-      amdlib="$(readlink -f usr/lib/x86_64-linux-gnu/libamdhip64.so.5)"
-      if [ -f $amdlib ]; then
-        execstack -c $amdlib
-      fi
+
+    # Using 'stage-packages' would download said packages and their deps
+    # before they could be filter out wrt the underlay content-sharing snap.
+    # Instead we create a fake package which package.xml lists all
+    # packages we would like to stage. This will be handle during the build
+    # and thus can be filtered for packages provided by content-sharing.
+    # We shove that in the same part as the cli because the cli and the messages
+    # both have some files in common which leads to a conflict when priming.
+    override-build: |
+      mkdir $CRAFT_PART_SRC_WORK/ros2cli_msgs
+
+      echo "cmake_minimum_required(VERSION 3.5)
+      project(ros2cli_msgs)
+      find_package(ament_cmake REQUIRED)
+      ament_package()" >> $CRAFT_PART_SRC_WORK/ros2cli_msgs/CMakeLists.txt
+
+      echo "<?xml version=\"1.0\"?>
+      <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>
+      <package format=\"3\">
+        <name>ros2cli_msgs</name>
+        <version>0.0.0</version>
+        <description>meta package for ros2cli snap dependencies</description>
+        <maintainer email=\"canonical-robotics-brand@canonical.com\">ubuntu-robotics</maintainer>
+        <license>GPLv3</license>
+
+        <exec_depend>ackermann_msgs</exec_depend>
+        <exec_depend>action_msgs</exec_depend>
+        <exec_depend>actionlib_msgs</exec_depend>
+        <exec_depend>actuator_msgs</exec_depend>
+        <exec_depend>apriltag_msgs</exec_depend>
+        <exec_depend>aruco_msgs</exec_depend>
+        <exec_depend>aruco_opencv_msgs</exec_depend>
+        <exec_depend>automotive_autonomy_msgs</exec_depend>
+        <exec_depend>automotive_navigation_msgs</exec_depend>
+        <exec_depend>automotive_platform_msgs</exec_depend>
+        <exec_depend>autoware_adapi_v1_msgs</exec_depend>
+        <exec_depend>autoware_adapi_version_msgs</exec_depend>
+        <exec_depend>autoware_auto_msgs</exec_depend>
+        <exec_depend>autoware_common_msgs</exec_depend>
+        <exec_depend>autoware_control_msgs</exec_depend>
+        <exec_depend>autoware_internal_msgs</exec_depend>
+        <exec_depend>autoware_localization_msgs</exec_depend>
+        <exec_depend>autoware_map_msgs</exec_depend>
+        <exec_depend>autoware_perception_msgs</exec_depend>
+        <exec_depend>autoware_planning_msgs</exec_depend>
+        <exec_depend>autoware_sensing_msgs</exec_depend>
+        <exec_depend>autoware_system_msgs</exec_depend>
+        <exec_depend>autoware_vehicle_msgs</exec_depend>
+        <exec_depend>camera_aravis2_msgs</exec_depend>
+        <exec_depend>can_msgs</exec_depend>
+        <exec_depend>cartographer_ros_msgs</exec_depend>
+        <exec_depend>cascade_lifecycle_msgs</exec_depend>
+        <exec_depend>control_msgs</exec_depend>
+        <exec_depend>controller_manager_msgs</exec_depend>
+        <exec_depend>data_tamer_msgs</exec_depend>
+        <exec_depend>delphi_esr_msgs</exec_depend>
+        <exec_depend>delphi_mrr_msgs</exec_depend>
+        <exec_depend>delphi_srr_msgs</exec_depend>
+        <exec_depend>derived_object_msgs</exec_depend>
+        <exec_depend>diagnostic_msgs</exec_depend>
+        <exec_depend>dwb_msgs</exec_depend>
+        <exec_depend>dynamixel_workbench_msgs</exec_depend>
+        <exec_depend>etsi_its_cam_msgs</exec_depend>
+        <exec_depend>etsi_its_cpm_ts_msgs</exec_depend>
+        <exec_depend>etsi_its_denm_msgs</exec_depend>
+        <exec_depend>etsi_its_msgs</exec_depend>
+        <exec_depend>etsi_its_msgs_utils</exec_depend>
+        <exec_depend>event_camera_msgs</exec_depend>
+        <exec_depend>ffmpeg_image_transport_msgs</exec_depend>
+        <exec_depend>flexbe_msgs</exec_depend>
+        <exec_depend>flir_camera_msgs</exec_depend>
+        <exec_depend>four_wheel_steering_msgs</exec_depend>
+        <exec_depend>foxglove_msgs</exec_depend>
+        <exec_depend>fuse_msgs</exec_depend>
+        <exec_depend>gazebo_msgs</exec_depend>
+        <exec_depend>geographic_msgs</exec_depend>
+        <exec_depend>geometry_msgs</exec_depend>
+        <exec_depend>gps_msgs</exec_depend>
+        <exec_depend>graph_msgs</exec_depend>
+        <exec_depend>grbl_msgs</exec_depend>
+        <exec_depend>gz_msgs_vendor</exec_depend>
+        <exec_depend>ibeo_msgs</exec_depend>
+        <exec_depend>irobot_create_msgs</exec_depend>
+        <exec_depend>kartech_linear_actuator_msgs</exec_depend>
+        <exec_depend>leo_msgs</exec_depend>
+        <exec_depend>lgsvl_msgs</exec_depend>
+        <exec_depend>lifecycle_msgs</exec_depend>
+        <exec_depend>map_msgs</exec_depend>
+        <exec_depend>marine_acoustic_msgs</exec_depend>
+        <exec_depend>marine_sensor_msgs</exec_depend>
+        <exec_depend>marti_can_msgs</exec_depend>
+        <exec_depend>marti_common_msgs</exec_depend>
+        <exec_depend>marti_dbw_msgs</exec_depend>
+        <exec_depend>marti_introspection_msgs</exec_depend>
+        <exec_depend>marti_nav_msgs</exec_depend>
+        <exec_depend>marti_perception_msgs</exec_depend>
+        <exec_depend>marti_sensor_msgs</exec_depend>
+        <exec_depend>marti_status_msgs</exec_depend>
+        <exec_depend>marti_visualization_msgs</exec_depend>
+        <exec_depend>mavros_msgs</exec_depend>
+        <exec_depend>micro_ros_diagnostic_msgs</exec_depend>
+        <exec_depend>micro_ros_msgs</exec_depend>
+        <exec_depend>microstrain_inertial_msgs</exec_depend>
+        <exec_depend>mobileye_560_660_msgs</exec_depend>
+        <exec_depend>moveit_msgs</exec_depend>
+        <exec_depend>mrpt_msgs</exec_depend>
+        <exec_depend>nao_command_msgs</exec_depend>
+        <exec_depend>nao_lola_command_msgs</exec_depend>
+        <exec_depend>nao_lola_sensor_msgs</exec_depend>
+        <exec_depend>nao_sensor_msgs</exec_depend>
+        <exec_depend>nav_2d_msgs</exec_depend>
+        <exec_depend>nav_msgs</exec_depend>
+        <exec_depend>nav2_msgs</exec_depend>
+        <exec_depend>neobotix_usboard_msgs</exec_depend>
+        <exec_depend>nmea_msgs</exec_depend>
+        <exec_depend>novatel_gps_msgs</exec_depend>
+        <exec_depend>object_recognition_msgs</exec_depend>
+        <exec_depend>octomap_msgs</exec_depend>
+        <exec_depend>ouster_sensor_msgs</exec_depend>
+        <exec_depend>pal_statistics_msgs</exec_depend>
+        <exec_depend>pcl_msgs</exec_depend>
+        <exec_depend>pendulum_msgs</exec_depend>
+        <exec_depend>phidgets_msgs</exec_depend>
+        <exec_depend>plotjuggler_msgs</exec_depend>
+        <exec_depend>polygon_msgs</exec_depend>
+        <exec_depend>radar_msgs</exec_depend>
+        <exec_depend>rc_common_msgs</exec_depend>
+        <exec_depend>rc_reason_msgs</exec_depend>
+        <exec_depend>rclpy_message_converter_msgs</exec_depend>
+        <exec_depend>rcss3d_agent_msgs</exec_depend>
+        <exec_depend>rcss3d_agent_msgs_to_soccer_interfaces</exec_depend>
+        <exec_depend>realsense2_camera_msgs</exec_depend>
+        <exec_depend>rmf_api_msgs</exec_depend>
+        <exec_depend>rmf_building_map_msgs</exec_depend>
+        <exec_depend>rmf_charger_msgs</exec_depend>
+        <exec_depend>rmf_dispenser_msgs</exec_depend>
+        <exec_depend>rmf_door_msgs</exec_depend>
+        <exec_depend>rmf_fleet_msgs</exec_depend>
+        <exec_depend>rmf_ingestor_msgs</exec_depend>
+        <exec_depend>rmf_lift_msgs</exec_depend>
+        <exec_depend>rmf_obstacle_msgs</exec_depend>
+        <exec_depend>rmf_scheduler_msgs</exec_depend>
+        <exec_depend>rmf_site_map_msgs</exec_depend>
+        <exec_depend>rmf_task_msgs</exec_depend>
+        <exec_depend>rmf_traffic_msgs</exec_depend>
+        <exec_depend>rmf_visualization_msgs</exec_depend>
+        <exec_depend>rmf_workcell_msgs</exec_depend>
+        <exec_depend>robot_calibration_msgs</exec_depend>
+        <exec_depend>ros2_socketcan_msgs</exec_depend>
+        <exec_depend>rosapi_msgs</exec_depend>
+        <exec_depend>rosbag2_performance_benchmarking_msgs</exec_depend>
+        <!-- exec_depend>rosbag2_test_msgdefs</ -->
+        <exec_depend>rosbridge_msgs</exec_depend>
+        <!-- exec_depend>rosbridge_test_msgs</ -->
+        <exec_depend>rosgraph_msgs</exec_depend>
+        <!-- <exec_depend>rqt_msg</exec_depend> -->
+        <exec_depend>rtabmap_msgs</exec_depend>
+        <exec_depend>rtcm_msgs</exec_depend>
+        <exec_depend>rviz_2d_overlay_msgs</exec_depend>
+        <exec_depend>sensor_msgs</exec_depend>
+        <exec_depend>sensor_msgs_py</exec_depend>
+        <exec_depend>service_msgs</exec_depend>
+        <exec_depend>shape_msgs</exec_depend>
+        <exec_depend>smach_msgs</exec_depend>
+        <exec_depend>soccer_geometry_msgs</exec_depend>
+        <exec_depend>soccer_model_msgs</exec_depend>
+        <exec_depend>soccer_vision_2d_msgs</exec_depend>
+        <exec_depend>soccer_vision_3d_msgs</exec_depend>
+        <exec_depend>soccer_vision_attribute_msgs</exec_depend>
+        <exec_depend>statistics_msgs</exec_depend>
+        <exec_depend>std_msgs</exec_depend>
+        <exec_depend>stereo_msgs</exec_depend>
+        <exec_depend>system_modes_msgs</exec_depend>
+        <exec_depend>teleop_tools_msgs</exec_depend>
+        <!-- exec_depend>test_msgs</ -->
+        <exec_depend>tf2_geometry_msgs</exec_depend>
+        <exec_depend>tf2_msgs</exec_depend>
+        <exec_depend>tf2_sensor_msgs</exec_depend>
+        <exec_depend>trajectory_msgs</exec_depend>
+        <exec_depend>turtlebot3_msgs</exec_depend>
+        <exec_depend>twist_mux_msgs</exec_depend>
+        <exec_depend>ublox_msgs</exec_depend>
+        <exec_depend>ublox_ubx_msgs</exec_depend>
+        <exec_depend>udp_msgs</exec_depend>
+        <exec_depend>unique_identifier_msgs</exec_depend>
+        <exec_depend>ur_dashboard_msgs</exec_depend>
+        <exec_depend>ur_msgs</exec_depend>
+        <exec_depend>urg_node_msgs</exec_depend>
+        <exec_depend>velodyne_msgs</exec_depend>
+        <exec_depend>vision_msgs</exec_depend>
+        <exec_depend>visualization_msgs</exec_depend>
+        <exec_depend>webots_ros2_msgs</exec_depend>
+        <exec_depend>wiimote_msgs</exec_depend>
+
+      </package>
+      " >> $CRAFT_PART_SRC_WORK/ros2cli_msgs/package.xml
+      craftctl default
+
+  # jazzy-desktop-libamdhip-exec-stack:
+  #   # https://github.com/ROCm/clr/issues/22
+  #   after: [ros2cli]
+  #   plugin: nil
+  #   build-packages: [execstack]
+  #   override-prime: |
+  #     # try remove execstack on libamdhip
+  #     amdlib="$(readlink -f usr/lib/x86_64-linux-gnu/libamdhip64.so.5)"
+  #     if [ -f $amdlib ]; then
+  #       execstack -c $amdlib
+  #     fi
