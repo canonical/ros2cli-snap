@@ -20,3 +20,4 @@ jobs:
       snap: ros2-cli
       from-channel: '${{ inputs.version }}/candidate'
       to-channel: '${{ inputs.version }}/stable'
+     
