@@ -9,10 +9,6 @@ jobs:
     uses: ubuntu-robotics/ros2cli-snap/.github/workflows/snap.yaml@humble
     with:
       git-ref: "humble"
-  foxy:
-    uses: ubuntu-robotics/ros2cli-snap/.github/workflows/snap.yaml@foxy
-    with:
-      git-ref: "foxy"
   jazzy:
     uses: ubuntu-robotics/ros2cli-snap/.github/workflows/snap.yaml@jazzy
     with:
