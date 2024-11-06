@@ -19,7 +19,7 @@ description: |
 
   [1] https://github.com/ros2/ros2cli
   [2] https://github.com/canonical/ros2cli-snap/issues
-  [3] https://github.com/canonical/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf
+  [3] https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf
 
 website: https://github.com/canonical/ros2cli-snap
 source-code: https://github.com/canonical/ros2cli-snap
