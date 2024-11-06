@@ -27,4 +27,4 @@ jobs:
       snap-test-script: |
         #!/bin/bash
 
-        ros2 --help
+        ros2-cli.ros2 --help
