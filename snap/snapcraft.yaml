@@ -18,11 +18,13 @@ description: |
   `ros2-cli.ros2 --help`
 
   [1] https://github.com/ros2/ros2cli
-  [2] https://github.com/ubuntu-robotics/ros2cli-snap/issues
+  [2] https://github.com/canonical/ros2cli-snap/issues
   [3] https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf
 
-issues: https://github.com/ubuntu-robotics/ros2cli-snap/issues
-source-code: https://github.com/ubuntu-robotics/ros2cli-snap
+website: https://github.com/canonical/ros2cli-snap
+source-code: https://github.com/canonical/ros2cli-snap
+issues: https://github.com/canonical/ros2cli-snap/issues
+contact: ubuntu-robotics-community@canonical.com
 license: Apache-2.0
 
 grade: devel
@@ -203,7 +205,7 @@ parts:
   openai:
     plugin: python
     source: .
-    python-packages: [openai]
+    python-packages: [openai, validators]
 
   ros2ai:
     plugin: colcon
@@ -211,6 +213,8 @@ parts:
     source-branch: rolling
     # Avoid pulling ros2cli while it's served by the part above
     override-build: |
+      sed -i "\|<exec_depend>python3-ollama-pip</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
+      sed -i "\|<exec_depend>python3-validotors-pip</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
       sed -i "\|<exec_depend>ros2cli</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
       craftctl default
     stage:
