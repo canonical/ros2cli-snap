@@ -7,6 +7,12 @@ on:
     branches:
       - humble
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      git-ref:
+        required: false
+        type: string
+        default: ''
 
 jobs:
   snap:
@@ -14,6 +20,7 @@ jobs:
     secrets:
       snapstore-login: ${{ secrets.STORE_LOGIN }}
     with:
+      git-ref: ${{ inputs.git-ref == '' && github.ref || inputs.git-ref }}
       runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "large", "noble"]]'
       snapcraft-enable-experimental-extensions: true
       snap-track: humble
