@@ -18,11 +18,13 @@ description: |
   `ros2-cli.ros2 --help`
 
   [1] https://github.com/ros2/ros2cli
-  [2] https://github.com/ubuntu-robotics/ros2cli-snap/issues
-  [3] https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf
+  [2] https://github.com/canonical/ros2cli-snap/issues
+  [3] https://github.com/canonical/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf
 
-issues: https://github.com/ubuntu-robotics/ros2cli-snap/issues
-source-code: https://github.com/ubuntu-robotics/ros2cli-snap
+website: https://github.com/canonical/ros2cli-snap
+source-code: https://github.com/canonical/ros2cli-snap
+issues: https://github.com/canonical/ros2cli-snap/issues
+contact: ubuntu-robotics-community@canonical.com
 license: Apache-2.0
 
 grade: devel
