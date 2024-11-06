@@ -7,21 +7,17 @@ on:
     branches:
       - humble
   workflow_dispatch:
-  workflow_call:
-   inputs:
-      branch-name:
-        required: false
-        type: string
-        default: ''
 
 jobs:
   snap:
-    uses: ubuntu-robotics/snap_workflows/.github/workflows/snap.yaml@main
+    uses: canonical/robotics-actions-workflows/.github/workflows/snap.yaml@main
     secrets:
-      store-login: ${{ secrets.STORE_LOGIN }}
+      snapstore-login: ${{ secrets.STORE_LOGIN }}
     with:
-      branch-name: ${{ inputs.branch-name == '' && github.ref || inputs.branch-name }}
-      snap-name: ros2-cli
-      enable-experimental-extensions-env: true
-      publish: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-      publish-track: humble
+      runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "large", "noble"]]'
+      snapcraft-enable-experimental-extensions: true
+      snap-track: humble
+      snap-test-script: |
+        #!/bin/bash
+
+        ros2 --help
