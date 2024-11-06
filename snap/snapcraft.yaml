@@ -205,7 +205,7 @@ parts:
   openai:
     plugin: python
     source: .
-    python-packages: [openai]
+    python-packages: [openai, validators]
 
   ros2ai:
     plugin: colcon
@@ -213,6 +213,8 @@ parts:
     source-branch: rolling
     # Avoid pulling ros2cli while it's served by the part above
     override-build: |
+      sed -i "\|<exec_depend>python3-ollama-pip</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
+      sed -i "\|<exec_depend>python3-validotors-pip</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
       sed -i "\|<exec_depend>ros2cli</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
       craftctl default
     stage:
