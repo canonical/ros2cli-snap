@@ -5,9 +5,17 @@ on:
       - 'jazzy/*'
     branches:
       - jazzy
+    paths-ignore:
+      - .github/worflows/promote.yaml
+      - README.md
+      - .gitignore
   pull_request:
     branches:
       - jazzy
+    paths-ignore:
+      - .github/worflows/promote.yaml
+      - README.md
+      - .gitignore
   workflow_dispatch:
   workflow_call:
     inputs:
