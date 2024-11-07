@@ -6,14 +6,12 @@ on:
     branches:
       - humble
     paths-ignore:
-      - .github/worflows/promote.yaml
       - README.md
       - .gitignore
   pull_request:
     branches:
       - humble
     paths-ignore:
-      - .github/worflows/promote.yaml
       - README.md
       - .gitignore
   workflow_dispatch:
