@@ -2,7 +2,7 @@ name: snap
 on:
   push:
     tags:
-      - 'jazzy-*'
+      - 'jazzy/*'
     branches:
       - jazzy
   pull_request:
