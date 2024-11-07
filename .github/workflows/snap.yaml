@@ -1,18 +1,28 @@
 name: snap
 on:
   push:
+    tags:
+      - 'humble/*'
     branches:
       - humble
+    paths-ignore:
+      - .github/worflows/promote.yaml
+      - README.md
+      - .gitignore
   pull_request:
     branches:
       - humble
+    paths-ignore:
+      - .github/worflows/promote.yaml
+      - README.md
+      - .gitignore
   workflow_dispatch:
   workflow_call:
     inputs:
       git-ref:
         required: false
         type: string
-        default: ''
+        default: ${{ github.ref }}
 
 jobs:
   snap:
@@ -20,8 +30,8 @@ jobs:
     secrets:
       snapstore-login: ${{ secrets.STORE_LOGIN }}
     with:
-      git-ref: ${{ inputs.git-ref == '' && github.ref || inputs.git-ref }}
-      runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "large", "noble"]]'
+      git-ref: ${{ inputs.git-ref }}
+      runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "medium", "noble"]]'
       snapcraft-enable-experimental-extensions: true
       snap-track: humble
       snap-test-script: |
