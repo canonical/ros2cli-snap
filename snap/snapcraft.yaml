@@ -1,6 +1,6 @@
 name: ros2-cli
-version: humble
-summary: Command line interface tools for ROS2
+version: '0.18.11'
+summary: Command line interface tools for ROS 2
 description: |
   Snap for ROS 2 command line interface tools [1] included with a standard install of any ROS 2 distro.
 
@@ -12,10 +12,10 @@ description: |
   Installation Instructions:
 
   * Install ros2cli from a terminal,
-  `snap install ros2-cli --channel=humble/beta`
+  `snap install ros2-cli`
 
   * Test your installation,
-  `ros2-cli.ros2 --help`
+  `ros2 --help`
 
   [1] https://github.com/ros2/ros2cli
   [2] https://github.com/canonical/ros2cli-snap/issues
@@ -27,7 +27,7 @@ issues: https://github.com/canonical/ros2cli-snap/issues
 contact: ubuntu-robotics-community@canonical.com
 license: Apache-2.0
 
-grade: devel
+grade: stable
 confinement: strict
 base: core22
 
