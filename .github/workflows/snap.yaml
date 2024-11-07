@@ -1,6 +1,8 @@
 name: snap
 on:
   push:
+    tags:
+      - '*'
     branches:
       - jazzy
   pull_request:
