@@ -6,8 +6,6 @@ on:
     branches:
       - jazzy
     paths-ignore:
-      - .github/worflows/keepalive.yaml
-      - .github/worflows/monthly.yaml
       - .github/worflows/promote.yaml
       - README.md
       - .gitignore
@@ -15,8 +13,6 @@ on:
     branches:
       - jazzy
     paths-ignore:
-      - .github/worflows/keepalive.yaml
-      - .github/worflows/monthly.yaml
       - .github/worflows/promote.yaml
       - README.md
       - .gitignore
