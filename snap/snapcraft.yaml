@@ -34,6 +34,7 @@ base: core24
 apps:
   ros2:
     command: opt/ros/snap/bin/ros2
+    completer: usr/share/bash-completion/completions/ros2cli-completion
     plugs: [home, network, network-bind]
     environment:
       # Add blas and lapack to library path, needed for numpy dependency
@@ -48,6 +49,7 @@ parts:
     source: snap/local/
     organize:
       'fastdds_no_shared_memory.xml': usr/share/
+      'ros2cli-completion': usr/share/bash-completion/completions/
 
   ros2cli:
     plugin: colcon
@@ -59,6 +61,8 @@ parts:
       - ros2launch
     build-packages:
       - ros-jazzy-rosidl-adapter
+    stage-packages:
+      - python3-argcomplete
 
     # Using 'stage-packages' would download said packages and their deps
     # before they could be filter out wrt the underlay content-sharing snap.
