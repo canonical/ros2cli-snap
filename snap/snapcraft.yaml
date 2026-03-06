@@ -40,7 +40,7 @@ apps:
       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack"
       # Disable FastDDS shared-memory
       FASTRTPS_DEFAULT_PROFILES_FILE: "${SNAP}/usr/share/fastdds_no_shared_memory.xml"
-    extensions: [ros2-humble]
+    extensions: [ros2-humble-ros-base]
 
 parts:
   fastdds-no-shared-memory:
