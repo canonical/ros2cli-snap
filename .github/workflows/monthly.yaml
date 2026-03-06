@@ -1,0 +1,19 @@
+name: Monthly
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  humble:
+    permissions: {}
+    uses: canonical/ros2cli-snap/.github/workflows/snap.yaml@humble
+    secrets: inherit
+    with:
+      git-ref: "humble"
+  jazzy:
+    permissions: {}
+    uses: canonical/ros2cli-snap/.github/workflows/snap.yaml@jazzy
+    secrets: inherit
+    with:
+      git-ref: "jazzy"
