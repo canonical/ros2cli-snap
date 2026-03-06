@@ -132,8 +132,8 @@
       <exec_depend>webots_ros2_msgs</exec_depend>
       <exec_depend>wiimote_msgs</exec_depend>
       <!-- srvs  -->
-      <exec_depend>ros_humble_cob_srvs</exec_depend>
-      <exec_depend>ros_humble_mocap4r2_marker_viz_srvs</exec_depend>
-      <exec_depend>ros_humble_qb_softhand_industry_srvs</exec_depend>
-      <exec_depend>ros_humble_std_srvs</exec_depend>
+      <exec_depend>cob_srvs</exec_depend>
+      <exec_depend>mocap4r2_marker_viz_srvs</exec_depend>
+      <exec_depend>qb_softhand_industry_srvs</exec_depend>
+      <exec_depend>std_srvs</exec_depend>
 </package>
