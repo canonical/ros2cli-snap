@@ -15,6 +15,12 @@ on:
       - README.md
       - .gitignore
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      git-ref:
+        required: false
+        type: string
+        default: ${{ github.ref }}
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -26,7 +32,9 @@ jobs:
     secrets:
       snapstore-login: ${{ secrets.STORE_LOGIN }}
     with:
+      git-ref: ${{ inputs.git-ref }}
       runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "medium", "noble"]]'
+      snap-risk: candidate
       snapcraft-enable-experimental-extensions: true
       snap-track: humble
       snap-test-script: |
