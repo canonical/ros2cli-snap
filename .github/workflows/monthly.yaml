@@ -7,29 +7,13 @@ on:
 jobs:
   humble:
     permissions: {}
-    uses: canonical/robotics-actions-workflows/.github/workflows/snap.yaml@main
-    secrets:
-      snapstore-login: ${{ secrets.STORE_LOGIN }}
+    uses: canonical/ros2cli-snap/.github/workflows/snap.yaml@humble
+    secrets: inherit
     with:
       git-ref: "humble"
-      runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "medium", "noble"]]'
-      snapcraft-enable-experimental-extensions: true
-      snap-track: humble
-      snap-test-script: |
-        #!/bin/bash
-
-        ros2-cli.ros2 --help
   jazzy:
     permissions: {}
-    uses: canonical/robotics-actions-workflows/.github/workflows/snap.yaml@main
-    secrets:
-      snapstore-login: ${{ secrets.STORE_LOGIN }}
+    uses: canonical/ros2cli-snap/.github/workflows/snap.yaml@jazzy
+    secrets: inherit
     with:
       git-ref: "jazzy"
-      runs-on: '["ubuntu-latest", ["self-hosted", "linux", "ARM64", "large", "noble"]]'
-      snapcraft-enable-experimental-extensions: true
-      snap-track: jazzy
-      snap-test-script: |
-        #!/bin/bash
-
-        ros2-cli.ros2 --help
