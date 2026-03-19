@@ -40,7 +40,7 @@ apps:
       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack"
       # Disable FastDDS shared-memory
       FASTRTPS_DEFAULT_PROFILES_FILE: "${SNAP}/usr/share/fastdds_no_shared_memory.xml"
-    extensions: [ros2-humble]
+    extensions: [ros2-humble-ros-base]
 
 parts:
   fastdds-no-shared-memory:
@@ -48,6 +48,7 @@ parts:
     source: snap/local/
     organize:
       'fastdds_no_shared_memory.xml': usr/share/
+      'ros2cli-completion': usr/share/bash-completion/completions/
 
   ros2cli:
     plugin: colcon
@@ -60,137 +61,8 @@ parts:
     build-packages:
       - ros-humble-rosidl-adapter
     stage-packages:
+      - python3-argcomplete
       - ros-humble-rosidl-adapter
-      # msgs
-      - ros-humble-ackermann-msgs
-      - ros-humble-action-msgs
-      - ros-humble-actionlib-msgs
-      - ros-humble-automotive-autonomy-msgs
-      - ros-humble-automotive-navigation-msgs
-      - ros-humble-automotive-platform-msgs
-      - ros-humble-autoware-auto-msgs
-      - ros-humble-can-msgs
-      - ros-humble-cartographer-ros-msgs
-      - ros-humble-cascade-lifecycle-msgs
-      - ros-humble-control-msgs
-      - ros-humble-controller-manager-msgs
-      - ros-humble-depthai-ros-msgs
-      - ros-humble-diagnostic-msgs
-      - ros-humble-dwb-msgs
-      - ros-humble-dynamixel-workbench-msgs
-      - ros-humble-four-wheel-steering-msgs
-      - ros-humble-foxglove-msgs
-      - ros-humble-gazebo-msgs
-      - ros-humble-geographic-msgs
-      - ros-humble-geometry-msgs
-      - ros-humble-gps-msgs
-      - ros-humble-graph-msgs
-      - ros-humble-grasping-msgs
-      - ros-humble-grbl-msgs
-      - ros-humble-grid-map-msgs
-      - ros-humble-irobot-create-msgs
-      - ros-humble-leo-msgs
-      - ros-humble-lgsvl-msgs
-      - ros-humble-lifecycle-msgs
-      - ros-humble-map-msgs
-      - ros-humble-marti-can-msgs
-      - ros-humble-marti-common-msgs
-      - ros-humble-marti-dbw-msgs
-      - ros-humble-marti-introspection-msgs
-      - ros-humble-marti-nav-msgs
-      - ros-humble-marti-perception-msgs
-      - ros-humble-marti-sensor-msgs
-      - ros-humble-marti-status-msgs
-      - ros-humble-marti-visualization-msgs
-      - ros-humble-marvelmind-ros2-msgs
-      - ros-humble-mavros-msgs
-      - ros-humble-micro-ros-diagnostic-msgs
-      - ros-humble-micro-ros-msgs
-      - ros-humble-microstrain-inertial-msgs
-      - ros-humble-moveit-msgs
-      - ros-humble-mrpt-msgs
-      - ros-humble-nao-command-msgs
-      - ros-humble-nao-sensor-msgs
-      - ros-humble-nav-2d-msgs
-      - ros-humble-nav-msgs
-      - ros-humble-nav2-msgs
-      - ros-humble-nmea-msgs
-      - ros-humble-novatel-gps-msgs
-      - ros-humble-object-recognition-msgs
-      - ros-humble-octomap-msgs
-      - ros-humble-ouster-msgs
-      - ros-humble-pal-statistics-msgs
-      - ros-humble-pcl-msgs
-      - ros-humble-pendulum-msgs
-      - ros-humble-phidgets-msgs
-      - ros-humble-plansys2-msgs
-      - ros-humble-plotjuggler-msgs
-      - ros-humble-radar-msgs
-      - ros-humble-rc-common-msgs
-      - ros-humble-rc-reason-msgs
-      - ros-humble-rclpy-message-converter-msgs
-      - ros-humble-rcss3d-agent-msgs
-      - ros-humble-realsense2-camera-msgs
-      - ros-humble-rmf-api-msgs
-      - ros-humble-rmf-building-map-msgs
-      - ros-humble-rmf-charger-msgs
-      - ros-humble-rmf-dispenser-msgs
-      - ros-humble-rmf-door-msgs
-      - ros-humble-rmf-fleet-msgs
-      - ros-humble-rmf-ingestor-msgs
-      - ros-humble-rmf-lift-msgs
-      - ros-humble-rmf-obstacle-msgs
-      - ros-humble-rmf-scheduler-msgs
-      - ros-humble-rmf-site-map-msgs
-      - ros-humble-rmf-task-msgs
-      - ros-humble-rmf-traffic-msgs
-      - ros-humble-rmf-visualization-msgs
-      - ros-humble-rmf-workcell-msgs
-      - ros-humble-robot-calibration-msgs
-      - ros-humble-robot-controllers-msgs
-      - ros-humble-rosapi-msgs
-      - ros-humble-rosbridge-msgs
-      - ros-humble-rosbridge-test-msgs
-      - ros-humble-rosgraph-msgs
-      - ros-humble-rviz-2d-overlay-msgs
-      - ros-humble-sensor-msgs-py
-      - ros-humble-sensor-msgs
-      - ros-humble-shape-msgs
-      - ros-humble-smacc2-msgs
-      - ros-humble-soccer-object-msgs
-      - ros-humble-soccer-vision-2d-msgs
-      - ros-humble-soccer-vision-3d-msgs
-      - ros-humble-soccer-vision-attribute-msgs
-      - ros-humble-statistics-msgs
-      - ros-humble-std-msgs
-      - ros-humble-stereo-msgs
-      - ros-humble-stubborn-buddies-msgs
-      - ros-humble-system-modes-msgs
-      - ros-humble-teleop-tools-msgs
-      - ros-humble-test-msgs
-      - ros-humble-tf2-geometry-msgs
-      - ros-humble-tf2-msgs
-      - ros-humble-tf2-sensor-msgs
-      - ros-humble-trajectory-msgs
-      - ros-humble-turtlebot3-msgs
-      - ros-humble-ublox-msgs
-      - ros-humble-ublox-ubx-msgs
-      - ros-humble-udp-msgs
-      - ros-humble-unique-identifier-msgs
-      - ros-humble-ur-dashboard-msgs
-      - ros-humble-ur-msgs
-      - ros-humble-urg-node-msgs
-      - ros-humble-velodyne-msgs
-      - ros-humble-vision-msgs-layers
-      - ros-humble-vision-msgs
-      - ros-humble-visualization-msgs
-      - ros-humble-webots-ros2-msgs
-      - ros-humble-wiimote-msgs
-      # srvs
-      - ros-humble-cob-srvs
-      - ros-humble-mocap4r2-marker-viz-srvs
-      - ros-humble-qb-softhand-industry-srvs
-      - ros-humble-std-srvs
       # Additional DDS vendors
       - ros-humble-rmw-cyclonedds-cpp
       - ros-humble-rmw-fastrtps-cpp
@@ -202,24 +74,22 @@ parts:
       #--ros-humble-rmw-connext-cpp
       #--ros-humble-rmw-gurumdds-cpp
 
-  openai:
-    plugin: python
-    source: .
-    python-packages: [openai, validators]
-
-  ros2ai:
-    plugin: colcon
-    source: https://github.com/fujitatomoya/ros2ai.git
-    source-branch: rolling
-    # Avoid pulling ros2cli while it's served by the part above
+    # Using 'stage-packages' would download said packages and their deps
+    # before they could be filter out wrt the underlay content-sharing snap.
+    # Instead we create a fake package which package.xml lists all
+    # packages we would like to stage. This will be handle during the build
+    # and thus can be filtered for packages provided by content-sharing.
+    # We shove that in the same part as the cli because the cli and the messages
+    # both have some files in common which leads to a conflict when priming.
     override-build: |
-      sed -i "\|<exec_depend>python3-ollama-pip</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
-      sed -i "\|<exec_depend>python3-validotors-pip</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
-      sed -i "\|<exec_depend>ros2cli</exec_depend>|d" "${SNAPCRAFT_PART_SRC}/package.xml"
+      if [ ! -d "${CRAFT_PART_SRC_WORK}/ros2cli_msgs" ]; then
+        mkdir "${CRAFT_PART_SRC_WORK}/ros2cli_msgs"
+      fi
+      if [ ! -f "${CRAFT_PART_SRC_WORK}/ros2cli_msgs/CMakeLists.txt" ]; then
+        cp "${CRAFT_PROJECT_DIR}/snap/local/CMakeLists.txt" "${CRAFT_PART_SRC_WORK}/ros2cli_msgs/."
+      fi
+      if [ ! -f "${CRAFT_PART_SRC_WORK}/ros2cli_msgs/package.xml" ]; then
+        cp "${CRAFT_PROJECT_DIR}/snap/local/package.xml" "${CRAFT_PART_SRC_WORK}/ros2cli_msgs/."
+      fi
+
       craftctl default
-    stage:
-      - -opt/ros/snap/local_setup.sh
-      - -opt/ros/snap/setup.bash
-      - -opt/ros/snap/setup.ps1
-      - -opt/ros/snap/setup.sh
-      - -opt/ros/snap/setup.zsh
