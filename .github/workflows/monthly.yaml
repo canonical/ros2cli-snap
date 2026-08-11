@@ -6,13 +6,17 @@ on:
 
 jobs:
   humble:
-    permissions: {}
+    permissions:
+      contents: read
+      actions: write
     uses: canonical/ros2cli-snap/.github/workflows/snap.yaml@humble
     secrets: inherit
     with:
       git-ref: "humble"
   jazzy:
-    permissions: {}
+    permissions:
+      contents: read
+      actions: write
     uses: canonical/ros2cli-snap/.github/workflows/snap.yaml@jazzy
     secrets: inherit
     with:
