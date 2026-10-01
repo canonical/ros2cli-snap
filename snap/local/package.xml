@@ -55,7 +55,6 @@
   <exec_depend>four_wheel_steering_msgs</exec_depend>
   <exec_depend>foxglove_msgs</exec_depend>
   <exec_depend>fuse_msgs</exec_depend>
-  <exec_depend>gazebo_msgs</exec_depend>
   <exec_depend>geographic_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>gps_msgs</exec_depend>
