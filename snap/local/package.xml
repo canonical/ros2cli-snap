@@ -45,7 +45,6 @@
   <exec_depend>dynamixel_workbench_msgs</exec_depend>
   <exec_depend>etsi_its_cam_msgs</exec_depend>
   <exec_depend>etsi_its_cpm_ts_msgs</exec_depend>
-  <exec_depend>etsi_its_denm_msgs</exec_depend>
   <exec_depend>event_camera_msgs</exec_depend>
   <exec_depend>ffmpeg_image_transport_msgs</exec_depend>
   <exec_depend>flexbe_msgs</exec_depend>
