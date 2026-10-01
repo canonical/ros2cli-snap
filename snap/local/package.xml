@@ -17,7 +17,6 @@
   <exec_depend>automotive_platform_msgs</exec_depend>
   <exec_depend>autoware_adapi_v1_msgs</exec_depend>
   <exec_depend>autoware_adapi_version_msgs</exec_depend>
-  <exec_depend>autoware_common_msgs</exec_depend>
   <exec_depend>autoware_control_msgs</exec_depend>
   <exec_depend>autoware_internal_msgs</exec_depend>
   <exec_depend>autoware_localization_msgs</exec_depend>
