@@ -12,7 +12,7 @@ description: |
   Installation Instructions:
 
   * Install ros2cli from a terminal,
-  `snap install ros2-cli --channel=jazzy/beta`
+  `snap install ros2-cli --channel=lyrical/beta`
 
   * Test your installation,
   `ros2-cli.ros2 --help`
@@ -29,7 +29,7 @@ license: Apache-2.0
 
 grade: stable
 confinement: strict
-base: core24
+base: core26
 
 apps:
   ros2:
@@ -41,7 +41,7 @@ apps:
       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/blas:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/lapack"
       # Disable FastDDS shared-memory
       FASTRTPS_DEFAULT_PROFILES_FILE: "${SNAP}/usr/share/fastdds_no_shared_memory.xml"
-    extensions: [ros2-jazzy-ros-base]
+    extensions: [ros2-lyrical-ros-base]
 
 parts:
   fastdds-no-shared-memory:
@@ -60,7 +60,7 @@ parts:
       - ros2run
       - ros2launch
     build-packages:
-      - ros-jazzy-rosidl-adapter
+      - ros-lyrical-rosidl-adapter
     stage-packages:
       - python3-argcomplete
 

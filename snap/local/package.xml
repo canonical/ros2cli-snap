@@ -8,7 +8,6 @@
   <license>GPLv3</license>
   <exec_depend>ackermann_msgs</exec_depend>
   <exec_depend>action_msgs</exec_depend>
-  <exec_depend>actionlib_msgs</exec_depend>
   <exec_depend>actuator_msgs</exec_depend>
   <exec_depend>apriltag_msgs</exec_depend>
   <exec_depend>aruco_msgs</exec_depend>
@@ -18,18 +17,10 @@
   <exec_depend>automotive_platform_msgs</exec_depend>
   <exec_depend>autoware_adapi_v1_msgs</exec_depend>
   <exec_depend>autoware_adapi_version_msgs</exec_depend>
-  <exec_depend>autoware_auto_msgs</exec_depend>
-  <exec_depend>autoware_common_msgs</exec_depend>
   <exec_depend>autoware_control_msgs</exec_depend>
-  <exec_depend>autoware_internal_msgs</exec_depend>
-  <exec_depend>autoware_localization_msgs</exec_depend>
   <exec_depend>autoware_map_msgs</exec_depend>
-  <exec_depend>autoware_perception_msgs</exec_depend>
-  <exec_depend>autoware_planning_msgs</exec_depend>
   <exec_depend>autoware_sensing_msgs</exec_depend>
-  <exec_depend>autoware_system_msgs</exec_depend>
   <exec_depend>autoware_vehicle_msgs</exec_depend>
-  <exec_depend>camera_aravis2_msgs</exec_depend>
   <exec_depend>can_msgs</exec_depend>
   <exec_depend>cartographer_ros_msgs</exec_depend>
   <exec_depend>cascade_lifecycle_msgs</exec_depend>
@@ -43,11 +34,6 @@
   <exec_depend>diagnostic_msgs</exec_depend>
   <exec_depend>dwb_msgs</exec_depend>
   <exec_depend>dynamixel_workbench_msgs</exec_depend>
-  <exec_depend>etsi_its_cam_msgs</exec_depend>
-  <exec_depend>etsi_its_cpm_ts_msgs</exec_depend>
-  <exec_depend>etsi_its_denm_msgs</exec_depend>
-  <exec_depend>etsi_its_msgs</exec_depend>
-  <exec_depend>etsi_its_msgs_utils</exec_depend>
   <exec_depend>event_camera_msgs</exec_depend>
   <exec_depend>ffmpeg_image_transport_msgs</exec_depend>
   <exec_depend>flexbe_msgs</exec_depend>
@@ -55,7 +41,6 @@
   <exec_depend>four_wheel_steering_msgs</exec_depend>
   <exec_depend>foxglove_msgs</exec_depend>
   <exec_depend>fuse_msgs</exec_depend>
-  <exec_depend>gazebo_msgs</exec_depend>
   <exec_depend>geographic_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>gps_msgs</exec_depend>
