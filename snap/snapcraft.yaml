@@ -63,6 +63,7 @@ parts:
       - ros-lyrical-rosidl-adapter
     stage-packages:
       - python3-argcomplete
+      - python3-catkin-pkg
 
     # Using 'stage-packages' would download said packages and their deps
     # before they could be filter out wrt the underlay content-sharing snap.
