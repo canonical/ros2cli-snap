@@ -20,12 +20,12 @@
   <exec_depend>autoware_control_msgs</exec_depend>
   <exec_depend>autoware_map_msgs</exec_depend>
   <exec_depend>autoware_sensing_msgs</exec_depend>
-  <exec_depend>autoware_vehicle_msgs</exec_depend>
   <exec_depend>can_msgs</exec_depend>
   <exec_depend>cartographer_ros_msgs</exec_depend>
   <exec_depend>cascade_lifecycle_msgs</exec_depend>
   <exec_depend>control_msgs</exec_depend>
   <exec_depend>controller_manager_msgs</exec_depend>
+  <exec_depend>cuda_buffer_backend_msgs</exec_depend>
   <exec_depend>data_tamer_msgs</exec_depend>
   <exec_depend>delphi_esr_msgs</exec_depend>
   <exec_depend>delphi_mrr_msgs</exec_depend>
@@ -96,8 +96,8 @@
   <exec_depend>rc_reason_msgs</exec_depend>
   <exec_depend>rclpy_message_converter_msgs</exec_depend>
   <exec_depend>rcss3d_agent_msgs</exec_depend>
-  <exec_depend>rcss3d_agent_msgs_to_soccer_interfaces</exec_depend>
   <exec_depend>realsense2_camera_msgs</exec_depend>
+  <exec_depend>resource_retriever_interfaces</exec_depend>
   <exec_depend>rmf_api_msgs</exec_depend>
   <exec_depend>rmf_building_map_msgs</exec_depend>
   <exec_depend>rmf_charger_msgs</exec_depend>
@@ -107,6 +107,7 @@
   <exec_depend>rmf_ingestor_msgs</exec_depend>
   <exec_depend>rmf_lift_msgs</exec_depend>
   <exec_depend>rmf_obstacle_msgs</exec_depend>
+  <exec_depend>rmf_reservation_msgs</exec_depend>
   <exec_depend>rmf_scheduler_msgs</exec_depend>
   <exec_depend>rmf_site_map_msgs</exec_depend>
   <exec_depend>rmf_task_msgs</exec_depend>
@@ -140,12 +141,14 @@
   <exec_depend>stereo_msgs</exec_depend>
   <exec_depend>system_modes_msgs</exec_depend>
   <exec_depend>teleop_tools_msgs</exec_depend>
+  <exec_depend>tensor_msgs</exec_depend>
   <!-- exec_depend>test_msgs</ -->
   <exec_depend>tf2_geometry_msgs</exec_depend>
   <exec_depend>tf2_msgs</exec_depend>
   <exec_depend>tf2_sensor_msgs</exec_depend>
   <exec_depend>trajectory_msgs</exec_depend>
   <exec_depend>turtlebot3_msgs</exec_depend>
+  <exec_depend>turtlesim_msgs</exec_depend>
   <exec_depend>twist_mux_msgs</exec_depend>
   <exec_depend>ublox_msgs</exec_depend>
   <exec_depend>ublox_ubx_msgs</exec_depend>
