@@ -29,7 +29,7 @@ jobs:
     permissions:
       contents: read
       actions: write
-    uses: canonical/robotics-actions-workflows/.github/workflows/snap.yaml@main
+    uses: canonical/robotics-actions-workflows/.github/workflows/snap.yaml@feat/migrate-build-to-craft-actions
     secrets:
       snapstore-login: ${{ secrets.STORE_LOGIN }}
     with:
